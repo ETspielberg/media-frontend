@@ -23,8 +23,9 @@ public class MediaFrontendApplication {
 
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-			http.httpBasic().disable();
-			http.authorizeRequests().anyRequest().authenticated();
+			http.httpBasic()
+					.and()
+					.authorizeRequests().anyRequest().authenticated();
 			http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 		}
 	}
